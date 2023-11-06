@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Productos en Tiempo Real</title>
+  </head>
+  <body>
+    <h1>Lista de Productos en Tiempo Real</h1>
+
+    <ul id="product-list">
+      <!-- Los productos se actualizarán aquí en tiempo real -->
+    </ul>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socketClient = io(); socketClient.on("arrayProducts",
+      (productsArray) => { const productList =
+      document.getElementById("product-list"); productList.innerHTML = ""; //
+      Limpiar la lista antes de actualizar productsArray.forEach((product) => {
+      const listItem = document.createElement("li"); listItem.textContent =
+      `${product.name} - Precio: ${product.price}`;
+      productList.appendChild(listItem); }); });
+    </script>
+  </body>
+</html>

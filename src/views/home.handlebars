@@ -1,0 +1,18 @@
+<h3>Socket Cliente</h3>
+
+<form id="form">
+  <label>name</label><input type="text" name="name" id="name" />
+  <label>price</label><input type="number" name="price" id="price" />
+  <input type="submit" value="Send" />
+</form>
+
+<p id="products">
+  <ul>
+    {{#each products}}
+      <li>{{this.name}} - {{this.price}}</li>
+    {{/each}}
+  </ul>
+</p>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/index.js"></script>
